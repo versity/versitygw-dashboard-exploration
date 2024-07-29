@@ -1,0 +1,14 @@
+cat provisioning/datasources/influxdb.yml 
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    isDefault: true
+    database: mydb
+    user: admin
+    password: adminpass
+    jsonData:
+      httpMode: POST
