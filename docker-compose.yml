@@ -43,7 +43,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./grafana_data:/var/lib/grafana
       - ./provisioning:/etc/grafana/provisioning
 
   versitygw:
@@ -61,5 +61,4 @@ services:
       posix /tmp/vgw
 
 volumes:
-  grafana_data: {}
   influxdb_data: {}
