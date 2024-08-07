@@ -1,0 +1,4 @@
+[submodule "versitygw"]
+	path = versitygw
+	url = git@github.com:versity/versitygw
+	branch = main
