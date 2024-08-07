@@ -60,5 +60,24 @@ services:
     command: >
       posix /tmp/vgw
 
+  versitygw-bats:
+    image: versity/versitygwtests:latest
+    container_name: versitygw-bats
+    build:
+      context: versitygw
+      dockerfile: Dockerfile_test_bats
+      args:
+        - CONFIG_FILE=tests/.env.default
+    environment:
+      - VGW_METRICS_STATSD_SERVERS=telegraf:8125
+    depends_on:
+      - telegraf
+    volumes:
+      - ./versitygw/tests:/home/tester/tests
+      - gateway_temp:/tmp/gw
+    profiles:
+      - autotest
+
 volumes:
   influxdb_data: {}
+  gateway_temp: {}
